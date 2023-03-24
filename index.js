@@ -1,15 +1,16 @@
 const ROCKETS_URL = "https://api.spacexdata.com/v3/rockets";
 
 const rocketsContainer = document.querySelector(".rockets");
+const rocketDetailsContainer = document.querySelector(
+  ".rocket-details"
+);
 
 const fetchRockets = async () => {
   const response = await fetch(ROCKETS_URL);
-  console.log(response);
   if (!response.ok) {
     throw new Error(response.statusText);
   }
   const rockets = await response.json();
-  console.log(rockets);
   return rockets;
 };
 
@@ -35,9 +36,18 @@ const fetchSingleRocket = async (rocketId) => {
 rocketsContainer.addEventListener(
   "click",
   async (event) => {
-    console.log(event.target.dataset.rocketId);
     const rocketId = event.target.dataset.rocketId;
     const rocket = await fetchSingleRocket(rocketId);
-    console.log(rocket);
+
+    const rocketImages = rocket.flickr_images
+      .map((image) => {
+        return `<img src="${image}" />`;
+      })
+      .join("");
+
+    rocketDetailsContainer.innerHTML = `
+    <h2>${rocket.rocket_name}</h2>
+    <p>${rocket.description}</p>
+    <div class="rocket-images">${rocketImages}</div>`;
   }
 );

@@ -13,3 +13,13 @@ ul li {
   background-color: rgb(238, 238, 238);
   cursor: pointer;
 }
+
+.rocket-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rocket-images img {
+  max-width: 200px;
+  margin: 10px;
+}
