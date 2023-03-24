@@ -50,7 +50,11 @@ rocketsContainer.addEventListener(
     <h2>${rocket.rocket_name}</h2>
     <p>Height: ${Object.entries(rocket.height)}</p>
     <p>Mass: ${Object.entries(rocket.mass)}</p>
+    <p>First Flight: ${rocket.first_flight}</p>
     <p>${rocket.description}</p>
-    <div class="rocket-images">${rocketImages}</div>`;
+    <div class="rocket-images">${rocketImages}</div>
+    <div href="${
+      rocket.wikipedia
+    }>Wikipedia Info Here</div>`;
   }
 );
