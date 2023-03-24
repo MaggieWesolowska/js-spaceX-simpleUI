@@ -53,8 +53,6 @@ rocketsContainer.addEventListener(
     <p>First Flight: ${rocket.first_flight}</p>
     <p>${rocket.description}</p>
     <div class="rocket-images">${rocketImages}</div>
-    <div href="${
-      rocket.wikipedia
-    }>Wikipedia Info Here</div>`;
+    `;
   }
 );
