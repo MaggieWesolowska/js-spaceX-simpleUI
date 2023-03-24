@@ -20,6 +20,7 @@ fetchRockets().then((rockets) => {
       return `<li data-rocket-id="${rocket.rocket_id}">${rocket.rocket_name}</li>`;
     })
     .join("");
+  console.log(rockets);
 });
 
 const fetchSingleRocket = async (rocketId) => {
@@ -47,6 +48,8 @@ rocketsContainer.addEventListener(
 
     rocketDetailsContainer.innerHTML = `
     <h2>${rocket.rocket_name}</h2>
+    <p>Height: ${Object.entries(rocket.height)}</p>
+    <p>Mass: ${Object.entries(rocket.mass)}</p>
     <p>${rocket.description}</p>
     <div class="rocket-images">${rocketImages}</div>`;
   }
